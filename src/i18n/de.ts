@@ -269,6 +269,13 @@ export const de: Dictionary = {
   'delete.cancel': 'Abbrechen',
   'delete.done': 'Alle Daten wurden von diesem Gerät gelöscht.',
 
+  'share.title': 'App teilen',
+  'share.text': 'Andere können diesen Code mit der Handykamera scannen, um die App zu öffnen. Geteilt wird nur die Adresse der App – niemals Ihre Angaben.',
+  'share.qrAlt': 'QR-Code mit der Adresse dieser App',
+  'share.share': 'Link teilen',
+  'share.copy': 'Link kopieren',
+  'share.copied': 'Link kopiert',
+
   'update.available': 'Eine neue Version der App ist verfügbar.',
   'update.reload': 'Jetzt aktualisieren',
   'offline.ready': 'Die App kann jetzt auch offline genutzt werden.',

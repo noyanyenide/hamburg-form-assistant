@@ -1,8 +1,9 @@
-import { FileText, Globe, Home, ListChecks, Menu, ShieldCheck, Trash2 } from 'lucide-react';
+import { FileText, Globe, Home, ListChecks, Menu, QrCode, ShieldCheck, Trash2 } from 'lucide-react';
 import { useState, type ReactNode } from 'react';
 import { useApp } from '../app/AppContext';
 import { useI18n } from '../i18n';
 import { LANGUAGES, type Language } from '../i18n/types';
+import { ShareAppDialog } from './ShareAppDialog';
 import { Button, Dialog } from './ui';
 
 export const LANGUAGE_LABELS: Record<Language, { flag: string; name: string }> = {
@@ -75,6 +76,7 @@ export function AppShell({ children, onToast }: { children: ReactNode; onToast: 
   const [languageOpen, setLanguageOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [deleteOpen, setDeleteOpen] = useState(false);
+  const [shareOpen, setShareOpen] = useState(false);
 
   const menuItem = (icon: ReactNode, label: string, onClick: () => void, danger = false) => (
     <button
@@ -134,6 +136,7 @@ export function AppShell({ children, onToast }: { children: ReactNode; onToast: 
           {furthestStep > 0 &&
             nav.screen !== 'review' &&
             menuItem(<ListChecks className="size-5" aria-hidden />, t('nav.review'), () => navigate({ screen: 'review' }))}
+          {menuItem(<QrCode className="size-5" aria-hidden />, t('share.title'), () => setShareOpen(true))}
           {menuItem(<ShieldCheck className="size-5" aria-hidden />, t('privacy.title'), () => navigate({ screen: 'privacy' }))}
           <hr className="my-2 border-slate-200" />
           {menuItem(<Trash2 className="size-5" aria-hidden />, t('delete.button'), () => setDeleteOpen(true), true)}
@@ -141,6 +144,7 @@ export function AppShell({ children, onToast }: { children: ReactNode; onToast: 
       </Dialog>
 
       <DeleteDataDialog open={deleteOpen} onClose={() => setDeleteOpen(false)} onDeleted={onToast} />
+      <ShareAppDialog open={shareOpen} onClose={() => setShareOpen(false)} />
     </div>
   );
 }

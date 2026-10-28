@@ -269,6 +269,13 @@ export const tr: Dictionary = {
   'delete.cancel': 'Vazgeç',
   'delete.done': 'Tüm veriler bu cihazdan silindi.',
 
+  'share.title': 'Uygulamayı paylaş',
+  'share.text': 'Başkaları bu kodu telefon kamerasıyla tarayarak uygulamayı açabilir. Yalnızca uygulamanın adresi paylaşılır – bilgileriniz asla.',
+  'share.qrAlt': 'Bu uygulamanın adresini içeren QR kod',
+  'share.share': 'Bağlantıyı paylaş',
+  'share.copy': 'Bağlantıyı kopyala',
+  'share.copied': 'Bağlantı kopyalandı',
+
   'update.available': 'Uygulamanın yeni bir sürümü mevcut.',
   'update.reload': 'Şimdi güncelle',
   'offline.ready': 'Uygulama artık çevrimdışı da kullanılabilir.',

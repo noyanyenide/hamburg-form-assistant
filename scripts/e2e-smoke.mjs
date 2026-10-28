@@ -197,6 +197,15 @@ const pdf = await PDFDocument.load(readFileSync(file));
 console.log(`Downloaded ${download.suggestedFilename()}: ${pdf.getPageCount()} pages, ${readFileSync(file).length} bytes`);
 if (pdf.getPageCount() !== 2) problems.push('PDF does not have 2 pages');
 
+// share dialog shows a QR code with the app's own address (never any answers)
+await page.getByRole('button', { name: 'Menü' }).click();
+await page.getByRole('button', { name: 'Uygulamayı paylaş' }).click();
+await page.getByRole('img', { name: /QR kod/ }).waitFor();
+const sharedUrl = await page.locator('dialog[open] p.break-all').textContent();
+if (sharedUrl !== new URL(BASE).href) problems.push(`share dialog shows ${sharedUrl}, expected ${new URL(BASE).href}`);
+await snap('share-qr');
+await page.keyboard.press('Escape');
+
 // delete all data
 await page.getByRole('button', { name: 'Menü' }).click();
 await page.getByRole('button', { name: 'Tüm verilerimi sil' }).click();

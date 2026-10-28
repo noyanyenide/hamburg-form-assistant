@@ -13,7 +13,8 @@
     "test:watch": "vitest",
     "sample:pdf": "vite-node scripts/sample-pdf.ts",
     "report:fields": "vite-node scripts/field-report.ts",
-    "e2e": "node scripts/e2e-smoke.mjs"
+    "e2e": "node scripts/e2e-smoke.mjs",
+    "qr": "vite-node scripts/qr-poster.ts"
   },
   "engines": {
     "node": ">=22.13.0"
@@ -25,6 +26,7 @@
     "lucide-react": "1.63.0",
     "pdf-lib": "1.17.1",
     "pdfjs-dist": "6.4.299",
+    "qrcode": "1.5.4",
     "react": "19.3.1",
     "react-dom": "19.3.1",
     "react-hook-form": "7.91.0",
@@ -36,6 +38,7 @@
     "@testing-library/dom": "10.4.2",
     "@testing-library/react": "16.3.3",
     "@types/node": "22.20.5",
+    "@types/qrcode": "1.5.6",
     "@types/react": "19.3.0",
     "@types/react-dom": "19.3.0",
     "@vitejs/plugin-react": "6.1.2",

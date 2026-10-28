@@ -102,6 +102,26 @@ Node ≥ 22.13. To rebuild the font subset: `pip install fonttools` and `scripts
   `Permissions-Policy: camera=(), microphone=(), geolocation=()`, and `Cache-Control: no-cache` for `index.html` and `sw.js`.
 - Do not add analytics or error monitoring that could capture form values.
 
+## Publishing and QR code
+
+The app must be reachable at a public **HTTPS** address; people then open it by scanning a QR code.
+
+- **GitHub Pages (recommended, automatic):** push this repository to GitHub, then *Settings → Pages → Source: GitHub Actions*.
+  `.github/workflows/deploy-pages.yml` tests, builds (with the right sub-path) and publishes on every push to `main`.
+  Address: `https://<user>.github.io/<repository>/`.
+- **Netlify / Cloudflare Pages:** upload `dist/` (e.g. Netlify Drop – sign in, otherwise anonymous sites expire).
+  `public/_headers` sets the security headers there.
+
+Then create the QR code and a printable trilingual A4 poster:
+
+```bash
+npm run qr -- https://<user>.github.io/<repository>/
+# → out/qr/app-qr.png, out/qr/app-qr.svg, out/qr/poster-A4.pdf
+```
+
+Inside the app, *Menu → Share this app* shows the same QR code (the app’s own address only, never any answers),
+so every user can pass the app on.
+
 ## Browser support
 
 iOS Safari 15.4+ (native `<dialog>`), Android Chrome, current desktop Chrome/Edge/Firefox/Safari. Layout target 320–430 px.

@@ -272,6 +272,13 @@ export const en = {
   'delete.cancel': 'Cancel',
   'delete.done': 'All data has been deleted from this device.',
 
+  'share.title': 'Share this app',
+  'share.text': 'Other people can scan this code with their phone camera to open the app. Only the app’s address is shared – never your answers.',
+  'share.qrAlt': 'QR code with the address of this app',
+  'share.share': 'Share link',
+  'share.copy': 'Copy link',
+  'share.copied': 'Link copied',
+
   'update.available': 'A new version of the app is available.',
   'update.reload': 'Update now',
   'offline.ready': 'The app can now also be used offline.',
